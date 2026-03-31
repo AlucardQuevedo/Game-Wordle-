@@ -1,24 +1,32 @@
-
-
 import random
 import math
 
 def CheckRightandRight(guess_as_list,actual_combo):
-    index=0 
-    correctIndex=[]
-    if actual_combo[index]==guess_as_list[index]:
-        correctIndex.append(index)
-    index=index+1
+    index=0
+    correctNum=["X","X","X","X","X"]
+
+    while index<len(guess_as_list):
+        if actual_combo[index]==guess_as_list[index]:
+            correctNum.pop(index)
+            correctNum.insert(index,actual_combo[index])
+        elif guess_as_list[index] in actual_combo:
+            correctNum.pop(index)
+            correctNum.insert(index,"O")
+        index=index+1
+    return correctNum
+        
+
+
 
 
 def randomCombo ():
-    numList=[0,1,2,3,4,5,6,7,8,9]
-    randomCombo = []
-    for i in range (4):
-        randomIndex=random.randint[0,len(numList)]
-        randomCombo.append(randomIndex)
-        
-    return randomCombo
+    numList=["0","1","2","3","4","5","6","7","8","9"]
+    randomCombos = []
+    for i in range (5):
+        randomIndex=random.randint(0,len(numList))
+        randomCombos.append(randomIndex)
+        numList.pop(randomIndex)
+    return randomCombos
         
   
 
@@ -36,10 +44,13 @@ print("\n\nYou got 5 chances, _ _ _ _ _")
 guess=input()
 guess=list(guess)
 print(guess)
-yare=randomCombo()
-print(yare)
+yare = [0,3,4,1,5]
+baka=randomCombo()
+print(baka)
 
-print(CheckRightandRight([1,3,4,5,6],yare)
+print(CheckRightandRight(guess,yare))
+print(CheckRightandRight(guess,baka))
+
 
 
 
