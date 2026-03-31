@@ -3,14 +3,12 @@
 import random
 import math
 
-def CheckIndex(guess_as_list,actual_combo):
-    x="yes"
-    i=0
-    for letter in guess_as_list:
-        while i<len(actual_combo):
-            check
-
-    actual_combo
+def CheckRightandRight(guess_as_list,actual_combo):
+    index=0 
+    correctIndex=[]
+    if actual_combo[index]==guess_as_list[index]:
+        correctIndex.append(index)
+    index=index+1
 
 
 def randomCombo ():
@@ -38,6 +36,10 @@ print("\n\nYou got 5 chances, _ _ _ _ _")
 guess=input()
 guess=list(guess)
 print(guess)
+yare=randomCombo()
+print(yare)
+
+print(CheckRightandRight([1,3,4,5,6],yare)
 
 
 
