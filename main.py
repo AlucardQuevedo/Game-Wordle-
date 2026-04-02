@@ -14,14 +14,9 @@ def CheckRightandRight(guess_as_list,actual_combo):
         index=index+1
     return correctNum
         
-def randomCombo ():
-    numList=["0","1","2","3","4","5","6","7","8","9"]
-    randomCombos = []
-    for i in range (5):
-        randomIndex=random.randint(0,len(numList))
-        randomCombos.append(randomIndex)
-    return randomCombos
-
+def randomCombo():
+    return random.sample(["0","1","2","3","4","5","6","7","8","9"], 5)
+#Chatgpt let us know about this
 
 
 print("YO this is our wordle game")
@@ -31,14 +26,42 @@ print("If you get the right number and in right place, we'll put the number")
 print("If you get the right number but not the right place, we'll put O")
 print("If you get the wrong number, we'll put an X")
 print("\n\nYou got 5 chances, _ _ _ _ _")
-guess=input()
-guess=list(guess)
-print(guess)
-yare = randomCombo()
-baka= ["1","2","3","4","5"]
-print(randomCombo())
-print(CheckRightandRight(guess,yare))
+FrCombo=randomCombo()
+remainingTries=5
+solved=False
+
+#Starts the Loop of asking
+while remainingTries > 0 and solved==False:
+    guess=input()
+
+    if CheckRightandRight(guess,FrCombo)==FrCombo:
+        print (CheckRightandRight(guess,FrCombo))
+        solved=True
+    else: 
+        print (CheckRightandRight(guess,FrCombo))
+        remainingTries=remainingTries-1
+
+#Death Screen
+if remainingTries==0:
+    print("Sorry dawg you didn't win\n\n"
+    "correct combo was," ,FrCombo)
+
+#The Win Screen
+if solved==True:
+    print ("\n\nAYE GOOD JOB YOU GOT THE COMBOO CORRECT") 
 
 
 
 
+
+
+
+
+# TESTING
+# guess=input()
+# guess=list(guess)
+# print(guess)
+# yare = randomCombo()
+# baka= ["1","2","3","4","5"]
+# print(yare)
+# print(CheckRightandRight(guess,yare))
